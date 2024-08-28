@@ -1,0 +1,199 @@
+﻿@{
+    ViewData["Title"] = "Update Customer Form";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        .container {
+            margin-top: 20px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+            .btn-primary:hover,
+            .btn-secondary:hover {
+                opacity: 0.8;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Back button -->
+        <div style="text-align: right; margin-bottom: 10px;">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Homepage</a>
+        </div>
+
+        <div style="text-align: right; margin-bottom: 10px;">
+            <a href="@Url.Action("GetCustomers")" class="btn btn-secondary">Back to Customers</a>
+        </div>
+
+        <h1>@ViewData["Title"]</h1>
+
+        <!-- Update Customer form -->
+        <form asp-action="UpdateACustomer" method="post">
+            <input type="hidden" name="aCustomerId" value="@ViewBag.ListOfCustomers[0].CustomerId" />
+
+            <div class="form-group">
+                <label for="aCompanyName">Company Name:</label>
+                <input type="text" id="aCompanyName" name="aCompanyName" class="form-control" value="@ViewBag.ListOfCustomers[0].CompanyName" />
+            </div>
+
+            <div class="form-group">
+                <label for="aContactName">Contact Name:</label>
+                <input type="text" id="aContactName" name="aContactName" class="form-control" value="@ViewBag.ListOfCustomers[0].ContactName" />
+            </div>
+
+            <div class="form-group">
+                <label for="aContactTitle">Contact Title:</label>
+                <input type="text" id="aContactTitle" name="aContactTitle" class="form-control" value="@ViewBag.ListOfCustomers[0].ContactTitle" />
+            </div>
+
+            <div class="form-group">
+                <label for="aAddress">Address:</label>
+                <input type="text" id="aAddress" name="aAddress" class="form-control" value="@ViewBag.ListOfCustomers[0].Address" />
+            </div>
+
+            <div class="form-group">
+                <label for="aCity">City:</label>
+                <input type="text" id="aCity" name="aCity" class="form-control" value="@ViewBag.ListOfCustomers[0].City" />
+            </div>
+
+            <div class="form-group">
+                <label for="aRegion">Region:</label>
+                <input type="text" id="aRegion" name="aRegion" class="form-control" value="@ViewBag.ListOfCustomers[0].Region" />
+            </div>
+
+            <div class="form-group">
+                <label for="aPostalCode">Postal Code:</label>
+                <input type="text" id="aPostalCode" name="aPostalCode" class="form-control" value="@ViewBag.ListOfCustomers[0].PostalCode" />
+            </div>
+
+            <div class="form-group">
+                <label for="aCountry">Country:</label>
+                <input type="text" id="aCountry" name="aCountry" class="form-control" value="@ViewBag.ListOfCustomers[0].Country" />
+            </div>
+
+            <div class="form-group">
+                <label for="aPhone">Phone:</label>
+                <input type="text" id="aPhone" name="aPhone" class="form-control" value="@ViewBag.ListOfCustomers[0].Phone" />
+            </div>
+
+            <div class="form-group">
+                <label for="aFax">Fax:</label>
+                <input type="text" id="aFax" name="aFax" class="form-control" value="@ViewBag.ListOfCustomers[0].Fax" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+@*
+<h3>Customer ID: @ViewBag.ListOfCustomers[0].CustomerId</h3>
+
+
+<form asp-action="UpdateACustomer" method="Post">
+
+    <input type="hidden" name="aCustomerId" value="@ViewBag.ListOfCustomers[0].CustomerId" />
+
+    Company Name <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCompanyName" value="@ViewBag.ListOfCustomers[0].CompanyName" />
+    <br /><br />
+
+
+    Contact Name <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aContactName" value="@ViewBag.ListOfCustomers[0].ContactName" />
+    <br /><br />
+
+    Contact Title <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aContactTitle" value="@ViewBag.ListOfCustomers[0].ContactTitle" />
+    <br /><br />
+
+    Address <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aAddress" value="@ViewBag.ListOfCustomers[0].Address" />
+    <br /><br />
+
+    City <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCity" value="@ViewBag.ListOfCustomers[0].City" />
+    <br /><br />
+
+
+    Region <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aRegion" value="@ViewBag.ListOfCustomers[0].Region"/>
+    <br /><br />
+
+
+
+    Postal Code <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aPostalCode" value="@ViewBag.ListOfCustomers[0].PostalCode" />
+    <br /><br />
+
+
+    Country <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCountry" value="@ViewBag.ListOfCustomers[0].Country" />
+    <br /><br />
+
+
+    Phone <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aPhone" value="@ViewBag.ListOfCustomers[0].Phone" />
+    <br /><br />
+
+
+
+    Fax <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aFax" value="@ViewBag.ListOfCustomers[0].Fax"/>
+    <br />
+
+
+    <input type="submit" />     <input type="reset" />
+
+
+
+
+
+</form>
+*@

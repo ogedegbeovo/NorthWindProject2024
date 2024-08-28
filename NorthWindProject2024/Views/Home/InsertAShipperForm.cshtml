@@ -1,0 +1,109 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    body {
+        background-color: #405d27;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        padding: 28px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    h2, h3 {
+        text-align: center;
+        font-family: 'Product Sans', sans-serif;
+        color: darkslategrey;
+        text-shadow: 1px 1px 0.5px grey;
+        font-weight: bold;
+        transition: top 0.3s ease;
+    }
+
+    .formGroup {
+        position: relative;
+        margin-bottom: 20px; /* Add margin-bottom to create space between form groups */
+    }
+
+        .formGroup select, .formGroup input[type="text"] {
+            padding: 9px;
+            border: none;
+            transition: border-color 0.3s ease;
+            width: 100%; /* Set width to 100% */
+            background-color: #f0f5f1;
+            color: black;
+            border-bottom: 2px solid silver;
+            font-size: 17px;
+            z-index: 2;
+        }
+
+            .formGroup select:focus, .formGroup input[type="text"]:focus {
+                border-color: #009879;
+                outline: none;
+            }
+
+    .formButtons {
+        text-align: center;
+    }
+
+    .formContainer {
+        border: none;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        margin: 50px auto 0;
+        background-color: #f0f5f1;
+    }
+
+    label {
+        font-weight: bold;
+        font-family: 'Product Sans', sans-serif;
+        color: grey;
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        transition: top 0.3s ease;
+    }
+
+
+    label {
+        transition: top 0.3s ease, left 0.3s ease;
+    }
+
+
+    .formGroup input:focus + label,
+    .formGroup select:focus + label {
+        top: -25px;
+        left: 5px;
+        font-size: 14px;
+        color: #009879;
+    }
+</style>
+<form action="InsertShippers" method="Post">
+    @*
+    Shipper Id <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipperId" />
+    *@
+    <br />
+
+    
+    Company Name <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCompanyName" />
+    <br />
+
+    Phone <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aPhone" />
+    <br />
+
+    <input type="submit" />     <input type="reset" />
+
+</form>

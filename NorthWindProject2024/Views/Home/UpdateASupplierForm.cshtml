@@ -1,0 +1,116 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+Update Supplier Form:
+
+
+
+<h2>Update Supplier </h2>
+<h3>Primary Key: @ViewBag.ListOfSuppliers[0].SupplierId</h3>
+
+
+
+<form action="UpdateASupplier" method="Post">
+
+
+    <input type="hidden" name="aSupplierId" value="@ViewBag.ListOfSuppliers[0].SupplierId" />
+
+
+    <div class="form-group">
+        <label for="aCompanyName">Company Name:</label>
+        <input type="text" id="aCompanyName" class="form-control" name="aCompanyName" value="@ViewBag.ListOfSuppliers[0].CompanyName" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aCoontactName">Contact Name:</label>
+        <input type="text" id="this is for js" class="form-group" name="aContactName" value="@ViewBag.ListOfSuppliers[0].ContactName" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aCoontactTitle">Contact Title:</label>
+        <input type="text" id="this is for js" class="form-group" name="aContactTitle" value="@ViewBag.ListOfSuppliers[0].ContactTitle" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aAddress">Address:</label>
+        <input type="text" id="this is for js" class="form-group" name="aAddress" value="@ViewBag.ListOfSuppliers[0].Address" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aCity">City:</label>
+        <input type="text" id="this is for js" class="form-group" name="aCity" value="@ViewBag.ListOfSuppliers[0].City" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aRegion">Region:</label>
+        <input type="text" id="this is for js" class="form-group" name="aRegion" value="@ViewBag.ListOfSuppliers[0].Region" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aPostalCode">Postal Code:</label>
+        <input type="text" id="this is for js" class="form-group" name="aPostalCode" value="@ViewBag.ListOfSuppliers[0].PostalCode" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aCountry">Country:</label>
+        <input type="text" id="this is for js" class="form-group" name="aCountry" value="@ViewBag.ListOfSuppliers[0].Country" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aPhone">Phone:</label>
+        <input type="text" id="this is for js" class="form-group" name="aPhone" value="@ViewBag.ListOfSuppliers[0].Phone" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aFax">Fax:</label>
+        <input type="text" id="this is for js" class="form-group" name="aFax" value="@ViewBag.ListOfSuppliers[0].Fax" /><br />
+    </div>
+
+    <div class="form-group">
+        <label for="aHomePage">HomePage:</label>
+        <input type="text" id="this is for js" class="form-group" name="aHomePage" value="@ViewBag.ListOfSuppliers[0].HomePage" /><br />
+    </div>
+
+    <input type="submit" />     <input type="reset" />
+
+
+</form>
+
+@*
+<form action="UpdateASupplier" method="Post">
+
+    <input type="hidden" name="aSupplierId" value="@ViewBag.ListOfSuppliers[0].SupplierId" />
+
+
+    Company Name <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCompanyName" value="@ViewBag.ListOfSuppliers[0].CompanyName" /><br />
+    Contact Name <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aContactName" value="@ViewBag.ListOfSuppliers[0].ContactName" /><br />
+    Contact Title <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aContactTitle" value="@ViewBag.ListOfSuppliers[0].ContactTitle" /><br />
+    address <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aAddress" value="@ViewBag.ListOfSuppliers[0].Address" /><br />
+    City <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCity" value="@ViewBag.ListOfSuppliers[0].City" /><br />
+    Region <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aRegion" value="@ViewBag.ListOfSuppliers[0].Region" /><br />
+    Postal Code <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aPostalCode" value="@ViewBag.ListOfSuppliers[0].PostalCode" /><br />
+    Counrty <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aCountry" value="@ViewBag.ListOfSuppliers[0].Country" /><br />
+    Phone <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aPhone" value="@ViewBag.ListOfSuppliers[0].Phone" /><br />
+    Fax <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aFax" value="@ViewBag.ListOfSuppliers[0].Fax" /><br />
+    Home Page <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aHomePage" value="@ViewBag.ListOfSuppliers[0].HomePage" /><br />
+
+    <input type="submit" />     <input type="reset" />
+
+
+</form>
+*@

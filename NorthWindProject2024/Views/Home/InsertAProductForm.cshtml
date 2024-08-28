@@ -1,0 +1,237 @@
+﻿
+
+<style>
+    body {
+        background-color: #405d27;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        padding: 28px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    h2, h3 {
+        text-align: center;
+        font-family: 'Product Sans', sans-serif;
+        color: darkslategrey;
+        text-shadow: 1px 1px 0.5px grey;
+        font-weight: bold;
+        transition: top 0.3s ease;
+    }
+
+    .formGroup {
+        position: relative;
+        margin-bottom: 20px; /* Add margin-bottom to create space between form groups */
+    }
+
+        .formGroup select, .formGroup input[type="text"] {
+            padding: 9px;
+            border: none;
+            transition: border-color 0.3s ease;
+            width: 100%; /* Set width to 100% */
+            background-color: #f0f5f1;
+            color: black;
+            border-bottom: 2px solid silver;
+            font-size: 17px;
+            z-index: 2;
+        }
+
+            .formGroup select:focus, .formGroup input[type="text"]:focus {
+                border-color: #009879;
+                outline: none;
+            }
+
+    .formButtons {
+        text-align: center;
+    }
+
+    .formContainer {
+        border: none;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        margin: 50px auto 0;
+        background-color: #f0f5f1;
+    }
+
+    label {
+        font-weight: bold;
+        font-family: 'Product Sans', sans-serif;
+        color: grey;
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        transition: top 0.3s ease;
+    }
+
+
+    label {
+        transition: top 0.3s ease, left 0.3s ease;
+    }
+
+
+    .formGroup input:focus + label,
+    .formGroup select:focus + label {
+        top: -25px;
+        left: 5px;
+        font-size: 14px;
+        color: #009879;
+    }
+</style>
+
+<div class="formContainer">
+    <h2>Add Product </h2> </br>
+    <form name="Form" action="InsertAProduct" onsubmit="return validateForm()" method="Post">
+
+        <div class="formGroup">
+            <input type="text" id="productName" class="formGroup" name="aProductName" placeholder=" Enter product name" />
+            <label for="productName">Product Name</label>
+        </div>
+
+
+        <div class="formGroup">
+            <label for="supplierid">Supplier ID</label>
+            <select name="aSupplierId" id="supplierid" class="formGroup" placeholder="Enter supplier ID">
+                @foreach (var s in ViewBag.ListOfSuppliers)
+                {
+                    <option value="@s.SupplierId">@s.SupplierId @s.CompanyName</option>
+                }
+            </select>
+        </div>
+
+        <div class="formGroup">
+            <label for="categoryId">Category ID</label>
+            <select name="aCategoryId" id="categoryId" class="formGroup" placeholder="Enter category ID">
+                <label for="categoryId">Category ID</label>
+                @foreach (var c in ViewBag.ListOfCategories)
+                {
+                    <option value="@c.CategoryId ">@c.CategoryName</option>
+                }
+            </select>
+        </div>
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aUnitPrice" placeholder="Enter unit price" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+
+
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aQuantityPerUnit" placeholder="Enter Quantity PerUnit" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+        
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aUnitsInStock" placeholder="Enter Units In Stock" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aUnitsOnOrder" placeholder="Enter Units On Order" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aReorderLevel" placeholder="Enter Reorder Level" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aDiscontinued" placeholder="Enter Discontinued" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+        
+
+        <div class="formButtons">
+            <input type="submit" />
+            <input type="reset" />
+        </div>
+
+    </form>
+</div>
+
+
+
+@*
+<form name="Form" action="InsertAProduct" onsubmit="return validateForm()" method="Post">
+
+    Product Name <br />
+    <input type="test" id="this is for js" class="this is for your css" name="aProductName"  />
+    <br />
+
+
+
+
+
+    Supplier Id <br />
+
+    <br />
+    
+    <select name="aSupplierId" class>
+
+        @foreach (var s in ViewBag.ListOfSuppliers)
+        {
+            <option value="@s.SupplierId">@s.SupplierId @s.CompanyName</option>
+        }
+    </select> <br /><br />
+    
+
+
+
+    Category Id <br />
+
+
+    <select name="aCategoryId">
+
+        @foreach (var c in ViewBag.ListOfCategories)
+        {
+            <option value="@c.CategoryId ">@c.CategoryName</option>
+        }
+    </select><br /><br/>
+
+    Unit Price <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aUnitPrice" />
+
+
+
+    QuantityPerUnit <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aQuantityPerUnit"  />
+    <br />
+
+
+    UnitsInStock <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aUnitsInStock"  />
+    <br />
+
+    UnitsOnOrder <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aUnitsOnOrder" />
+    <br />
+
+    ReorderLevel <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aReorderLevel" />
+    <br />
+
+    Discontinued <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aDiscontinued" />
+    <br />
+
+
+    <input type="submit" />     <input type="reset" />
+
+
+
+
+
+</form>
+*@
+<script src="site.js"></script>

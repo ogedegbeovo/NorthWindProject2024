@@ -1,0 +1,192 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Update a Product </h2>
+<h3>Primary Key: @ViewBag.ListOfPRoducts[0].ProductId</h3>
+
+
+
+<style>
+
+    body {
+        background-color: #405d27;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        padding: 28px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    h2, h3 {
+        text-align: center;
+        font-family: 'Product Sans', sans-serif;
+        color: darkslategrey;
+        text-shadow: 1px 1px 0.5px grey;
+        font-weight: bold;
+        transition: top 0.3s ease;
+    }
+
+    .formGroup {
+        position: relative;
+        margin-bottom: 20px; /* Add margin-bottom to create space between form groups */
+    }
+
+        .formGroup select, .formGroup input[type="text"] {
+            padding: 9px;
+            border: none;
+            transition: border-color 0.3s ease;
+            width: 100%; /* Set width to 100% */
+            background-color: #f0f5f1;
+            color: black;
+            border-bottom: 2px solid silver;
+            font-size: 17px;
+            z-index: 2;
+        }
+
+            .formGroup select:focus, .formGroup input[type="text"]:focus {
+                border-color: #009879;
+                outline: none;
+            }
+
+    .formButtons {
+        text-align: center;
+    }
+
+    .formContainer {
+        border: none;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        margin: 50px auto 0;
+        background-color: #f0f5f1;
+    }
+
+    label {
+        font-weight: bold;
+        font-family: 'Product Sans', sans-serif;
+        color: grey;
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        transition: top 0.3s ease;
+    }
+
+
+    label {
+        transition: top 0.3s ease, left 0.3s ease;
+    }
+
+
+    .formGroup input:focus + label,
+    .formGroup select:focus + label {
+        top: -25px;
+        left: 5px;
+        font-size: 14px;
+        color: #009879;
+    }
+</style>
+
+
+<div class="formContainer">
+    <h2>Update a Product </h2> 
+    <h3>Primary Key: @ViewBag.ListOfPRoducts[0].ProductId</h3><br />
+
+    <form action="UpdateAProduct" method="Post">
+
+        <input type="hidden" name="productId" value="@ViewBag.ListOfProducts[0].ProductId" />
+
+        <div class="formGroup">
+            <input type="text" id="productName" class="formGroup" name="aProductName" placeholder="Product Name" value="@ViewBag.ListOfProducts[0].ProductName" />
+            <label for="productName">Product Name</label>
+        </div>
+
+        <div class="formGroup">
+            <label for="supplierid">Supplier ID</label>
+            <select name="aSupplierid" id="supplierid" class="formGroup" placeholder="Supplier ID">
+                @foreach (var s in ViewBag.ListOfSuppliers)
+                {
+                    @if (s.SupplierId == @ViewBag.ListOfProducts[0].SupplierId)
+                    {
+                        <option value="@s.SupplierId" SELECTED>@s.SupplierId @s.CompanyName</option>
+                    }
+                    else
+                    {
+                        <option value="@s.SupplierId">@s.SupplierId @s.CompanyName</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="formGroup">
+            <label for="categoryId">Category ID</label>
+            <select name="aCategoryId" id="categoryId" class="formGroup" placeholder="Category ID">
+                <label for="categoryId">Category ID</label>
+                @foreach (var c in ViewBag.ListOfCategories)
+                {
+                    @if (@c.CategoryId == @ViewBag.ListOfProducts[0].CategoryId)
+                    {
+                        <option value="@c.CategoryId" SELECTED>@c.CategoryId @c.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@c.CategoryId">@c.CategoryId @c.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aUnitPrice" placeholder="Unit Price" value="@ViewBag.ListOfProducts[0].UnitPrice" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aQuantityPerUnit" placeholder="Unit Price" value="@ViewBag.ListOfProducts[0].QuantityPerUnit" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aUnitsInStock" placeholder="Unit Price" value="@ViewBag.ListOfProducts[0].UnitsInStock" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aUnitsOnOrder" placeholder="Unit Price" value="@ViewBag.ListOfProducts[0].UnitsOnOrder" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aReorderLevel" placeholder="Unit Price" value="@ViewBag.ListOfProducts[0].ReorderLevel" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+
+        <div class="formGroup">
+            <input type="text" id="unitPrice" class="formGroup" name="aDiscontinued" placeholder="Unit Price" value="@ViewBag.ListOfProducts[0].Discontinued" />
+            <label for="unitPrice">Unit Price</label>
+        </div>
+
+        <div class="formButtons">
+            <input type="submit" />
+            <input type="reset" />
+        </div>
+
+    </form>
+
+
+
+
+

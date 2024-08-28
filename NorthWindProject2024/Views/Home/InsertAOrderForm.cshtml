@@ -1,0 +1,188 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    body {
+        background-color: #405d27;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        padding: 28px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    h2, h3 {
+        text-align: center;
+        font-family: 'Product Sans', sans-serif;
+        color: darkslategrey;
+        text-shadow: 1px 1px 0.5px grey;
+        font-weight: bold;
+        transition: top 0.3s ease;
+    }
+
+    .formGroup {
+        position: relative;
+        margin-bottom: 20px; /* Add margin-bottom to create space between form groups */
+    }
+
+        .formGroup select, .formGroup input[type="text"] {
+            padding: 9px;
+            border: none;
+            transition: border-color 0.3s ease;
+            width: 100%; /* Set width to 100% */
+            background-color: #f0f5f1;
+            color: black;
+            border-bottom: 2px solid silver;
+            font-size: 17px;
+            z-index: 2;
+        }
+
+            .formGroup select:focus, .formGroup input[type="text"]:focus {
+                border-color: #009879;
+                outline: none;
+            }
+
+    .formButtons {
+        text-align: center;
+    }
+
+    .formContainer {
+        border: none;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        margin: 50px auto 0;
+        background-color: #f0f5f1;
+    }
+
+    label {
+        font-weight: bold;
+        font-family: 'Product Sans', sans-serif;
+        color: grey;
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        transition: top 0.3s ease;
+    }
+
+
+    label {
+        transition: top 0.3s ease, left 0.3s ease;
+    }
+
+
+    .formGroup input:focus + label,
+    .formGroup select:focus + label {
+        top: -25px;
+        left: 5px;
+        font-size: 14px;
+        color: #009879;
+    }
+</style>
+
+
+
+
+
+<form action="InsertAOrder" method="Post">
+
+    @*CustomerId <br />
+    <input type="test" id="this is for js" class="this is for your css" name="aCustomerId" />
+    <br />*@
+
+
+    Customer Id
+
+    <br />
+
+    <select name="aCustomerId">
+
+        @foreach (var e in ViewBag.ListOfCustomers)
+        {
+            <option value="@e.CustomerId">@e.CustomerId @e.CompanyName</option>
+        }
+    </select> <br /><br />
+
+
+    Employee Id
+
+    <br />
+
+    <select name="aEmployeeId">
+
+        @foreach (var e in ViewBag.ListOfEmployees)
+        {
+            <option value="@e.EmployeeId">@e.EmployeeId @e.FirstName @e.LastName</option>
+        }
+    </select> <br /><br />
+
+
+
+    @*
+    Category Id <br />
+
+
+    <select name="categoryId">
+
+    @foreach (var c in ViewBag.ListOfCategories)
+    {
+    <option value="@c.CategoryId ">@c.CategoryName</option>
+    }
+    </select><br /><br />
+    *@
+
+
+    Order Date <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aOrderDate" /><br />
+
+    Reqired Date <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aRequiredDate" /><br />
+
+    Shipped Date <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShippedDate" /><br />
+
+    Ship Via <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipVia" /><br />
+
+    Freight <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aFreight" /><br />
+
+    Ship Name <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipName" /><br />
+
+    Ship Address <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipAddress" /><br />
+
+    Ship City <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipCity" /><br />
+
+    Ship Region <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipRegion" /><br />
+
+    Ship Postal Code <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipPostalCode" /><br />
+
+    Ship Country <br />
+    <input type="text" id="this is for js" class="this is for your css" name="aShipCountry" /><br />
+
+    <input type="submit" />     <input type="reset" />
+
+
+
+
+
+</form>

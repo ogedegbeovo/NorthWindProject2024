@@ -1,0 +1,233 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+        padding: 28px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    h2, h3 {
+        text-align: center;
+        font-family: 'Product Sans', sans-serif;
+        color: darkslategrey;
+        text-shadow: 1px 1px 0.5px grey;
+        font-weight: bold;
+        transition: top 0.3s ease;
+    }
+
+    .formGroup {
+        position: relative;
+        margin-bottom: 20px; /* Add margin-bottom to create space between form groups */
+    }
+
+        .formGroup select, .formGroup input[type="text"] {
+            padding: 9px;
+            border: none;
+            transition: border-color 0.3s ease;
+            width: 100%; /* Set width to 100% */
+            background-color: #f0f5f1;
+            color: black;
+            border-bottom: 2px solid silver;
+            font-size: 17px;
+            z-index: 2;
+        }
+
+            .formGroup select:focus, .formGroup input[type="text"]:focus {
+                border-color: #009879;
+                outline: none;
+            }
+
+    .formButtons {
+        text-align: center;
+    }
+
+    .formContainer {
+        border: none;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        margin: 50px auto 0;
+        background-color: #f0f5f1;
+    }
+
+    label {
+        font-weight: bold;
+        font-family: 'Product Sans', sans-serif;
+        color: grey;
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        transition: top 0.3s ease;
+    }
+
+
+    label {
+        transition: top 0.3s ease, left 0.3s ease;
+    }
+
+
+    .formGroup input:focus + label,
+    .formGroup select:focus + label {
+        top: -25px;
+        left: 5px;
+        font-size: 14px;
+        color: #009879;
+    }
+
+    body {
+        background-color: #405d27;
+    }
+
+    .content-table {
+        border-collapse: collapse;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 0.9em;
+        min-width: 400px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+        background-color: #fff5;
+    }
+
+        .content-table::-webkit-scrollbar {
+            width: 8px 8px 0 0;
+            height: 8px 8px 0 0;
+        }
+
+        .content-table thead tr {
+            background-color: #3e4444;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            overflow: auto;
+        }
+
+            .content-table tbody tr:nth-child(even) {
+                background-color: #f0f5f1;
+            }
+
+    button, .a {
+        background-color: #3e4444;
+        color: white;
+        padding: 5px 15px;
+        border: none;
+        cursor: pointer;
+    }
+
+
+
+    .backLinksContainer {
+        display: inline;
+    }
+
+        .backLinksContainer button {
+            font-family: product sans;
+            font-size: 18px;
+            color: silver;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+            .backLinksContainer button:hover {
+                color: grey;
+            }
+</style>
+
+
+<div class="backLinksContainer">
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Home</button>
+</div>
+
+<!-- Insert Customer button -->
+<div class="backLinksContainer">
+    <button type="button" onclick="location.href='@Url.Action("InsertACustomerForm")'">Add Customer</button>
+</div>
+
+
+<div class="formContainer">
+    <h2>Customers</h2> </br>
+    <!-- Filter form -->
+    <form method="get" action="@Url.Action("GetCustomerByFilter")">
+
+        <div class="formGroup">
+            <label for="aCustomerId">Customer ID:</label>
+            <input type="text" id="aCustomerId" name="aCustomerId" class="formGroup">
+        </div>
+
+        <div class="formButtons">
+            <button type="submit" class="formButtons" style="margin-top: 32px;">Apply Filters</button>
+        </div>
+        <!-- Refresh Button -->
+        <div class="formButtons">
+            <button type="button" onclick="location.href='@Url.Action("GetCustomers")'" class="formButtons" style="margin-top: 32px;">Refresh</button>
+        </div>
+
+    </form>
+</div>
+
+<table class="content-table">
+    <tr>
+        <td>CustomerId</td>
+        <td>CompanyName</td>
+        <td>ContactName</td>
+        <td>ContactTitle</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>Region</td>
+        <td>PostalCode</td>
+        <td>Country</td>
+        <td>Phone</td>
+        <td>Fax</td>
+
+    </tr>
+
+    @foreach (var c in ViewBag.ListOfCustomers)
+    {
+        <tr>
+            <td>@c.CustomerId</td>
+            <td>@c.CompanyName</td>
+            <td>@c.ContactName</td>
+            <td>@c.ContactTitle</td>
+            <td>@c.Address</td>
+            <td>@c.City</td>
+            <td>@c.Region</td>
+            <td>@c.PostalCode</td>
+            <td>@c.Country</td>
+            <td>@c.Phone</td>
+            <td>@c.Fax</td>
+            <td><a href="@Url.Action("UpdateACustomerForm",new { aCustomerId = c.CustomerId })">Edit</a></td>
+
+
+
+        </tr>
+    }
+
+
+
+
+</table>

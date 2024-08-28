@@ -1,0 +1,149 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    body {
+        background-color: #405d27;
+    }
+
+    .content-table {
+        border-collapse: collapse;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 0.9em;
+        min-width: 400px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+        background-color: #fff5;
+    }
+
+        .content-table::-webkit-scrollbar {
+            width: 8px 8px 0 0;
+            height: 8px 8px 0 0;
+        }
+
+        .content-table thead tr {
+            background-color: #3e4444;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            overflow: auto;
+        }
+
+            .content-table tbody tr:nth-child(even) {
+                background-color: #f0f5f1;
+            }
+
+    button {
+        background-color: #3e4444;
+        color: white;
+        padding: 5px 15px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .backLinksContainer {
+        display: inline;
+    }
+
+        .backLinksContainer button {
+            font-family: product sans;
+            font-size: 18px;
+            color: silver;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+            .backLinksContainer button:hover {
+                color: grey;
+            }
+
+    h2, h3 {
+        text-align: center;
+        font-family: 'Product Sans', sans-serif;
+        color: darkslategrey;
+        text-shadow: 1px 1px 0.5px grey;
+        font-weight: bold;
+        transition: top 0.3s ease;
+    }
+</style>
+
+<div class="backLinksContainer">
+    <button type="button" onclick="location.href='@Url.Action("InsertAEmployeeForm")'">Add Employee</button>
+</div>
+
+<div class="formContainer">
+    <h2>Employees</h2> </br>
+    <div />
+
+
+<table class="content-table">
+    <tr>
+        <td>EmployeeId</td>
+        <td>LastName</td>
+        <td>FirstName</td>
+        <td>Title</td>
+        <td>TitleOfCourtesy</td>
+        <td>BirthDate</td>
+        <td>BirthDate</td>
+        <td>HireDate</td>
+        <td>City</td>
+        <td>Region</td>
+        <td>PostalCode</td>
+        <td>Country</td>
+        <td>HomePhone</td>
+        <td>Extension</td>
+        <td>Photo</td>
+        <td>Notes</td>
+        <td>ReportsTo</td>
+
+    </tr>
+
+    @foreach (var e in ViewBag.ListOfEmployees)
+    {
+        <tr>
+            <td>@e.EmployeeId</td>
+            <td>@e.LastName</td>
+            <td>@e.FirstName</td>
+            <td>@e.Title</td>
+            <td>@e.TitleOfCourtesy</td>
+            <td>@e.BirthDate</td>
+            <td>@e.BirthDate</td>
+            <td>@e.HireDate</td>
+            <td>@e.City</td>
+            <td>@e.Region</td>
+            <td>@e.PostalCode</td>
+            <td>@e.Country</td>
+            <td>@e.HomePhone</td>
+            <td>@e.Extension</td>
+            <td>@e.Photo</td>
+            <td>@e.Notes</td>
+            <td>@e.ReportsTo</td>
+                <td> <a href="@Url.Action("UpdateAEmployeeForm")?aEmployeeId=@e.EmployeeId" class="btn btn-warning btn-sm">Edit</a> </td>
+
+        </tr>
+
+    }
+
+
+
+
+</table>
